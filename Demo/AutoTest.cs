@@ -18,8 +18,19 @@ namespace Demo
         [Test]
         public void Openwindow()
         {
-            driver = new ChromeDriver("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32");
-            driver.Navigate().GoToUrl("https://www.google.co.in/");
+           // driver = new ChromeDriver("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32");
+            
+            String url = "http://www.google.com";
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArgument("--headless");
+
+            var chromeDriverService = ChromeDriverService.CreateDefaultService("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32", "chromedriver.exe");
+            ChromeDriver driver = new ChromeDriver(chromeDriverService, chromeOptions);
+            driver.Navigate().GoToUrl(url);
+
+
+
+           // driver.Navigate().GoToUrl("https://www.google.co.in/");
             driver.Manage().Window.Maximize();
             driver.Quit();
 

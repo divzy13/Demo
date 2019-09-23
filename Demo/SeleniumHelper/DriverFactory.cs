@@ -42,8 +42,8 @@ namespace Demo.SeleniumHelper
                 case DriverName.Chrome:
                     var chromeOptions = new ChromeOptions();
                     chromeOptions.AddArguments("headless");
-                    driver = new ChromeDriver("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32");
-                   // driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);
+                   // driver = new ChromeDriver("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32");
+                    driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);
                     break;
 
                 case DriverName.Firefox:

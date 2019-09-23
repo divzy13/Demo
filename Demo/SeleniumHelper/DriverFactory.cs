@@ -47,8 +47,13 @@ namespace Demo.SeleniumHelper
                     break;
 
                 case DriverName.Firefox:
-                    var firefoxProfile = FirefoxOptions;
-                    driver = new FirefoxDriver(firefoxProfile);
+                    FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@"C:\Users\divya.raveendran\Downloads\geckodriver-v0.25.0-win64", "geckodriver.exe");
+                    //Give the path of the Firefox Browser        
+                    service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+                    driver = new FirefoxDriver(service);
+
+                   // var firefoxProfile = FirefoxOptions;
+                    // driver = new FirefoxDriver(firefoxProfile);
                     driver.Manage().Window.Maximize();
                     break;
 

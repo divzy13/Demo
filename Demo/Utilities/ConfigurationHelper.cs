@@ -24,6 +24,14 @@ namespace Demo.Utilities
                 return (T)Convert.ChangeType(value, typeof(T));
         }
 
+        public static string ConnectionStringSettings()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+            return connectionString;
+        }
+
+
+
 
     }
 }

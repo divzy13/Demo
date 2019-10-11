@@ -19,19 +19,18 @@ namespace Demo
 {
     public class AutoTest
     {
-        public static string _url;
-        public static IWebDriver _driver;
+        public static string Url { get; set; }
+        public static IWebDriver Driver { get; set; }
 
         [SetUp]
-        // public static void SetupTest()
-        // {
-        //     _driver = new DriverFactory().Create();
-        //    PageFactory.InitElements(_driver, new AutoTest());
-        //    _url = ConfigurationHelper.Get<string>("URL");
-        //}
+         public static void SetupTest()
+         {
+            //Driver = new driverfactory().create();
+            //_url = configurationhelper.get<string>("url");
+            Browser.Open(Url);
+        }
 
-        public static void SetupTest(RemoteWebDriver driver) => _driver = driver;
-        
+
         [Test]
         public static void Openwindow()
         {
@@ -43,7 +42,7 @@ namespace Demo
             // chromeOptions.AddArguments("headless");
             // ChromeDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);
 
-            _driver.Navigate().GoToUrl(_url);
+            Driver.Navigate().GoToUrl(Url);
             LoginPage.LoginWithCred();
 
 
@@ -52,7 +51,7 @@ namespace Demo
         [TearDown]
         public void Close()
         {
-            _driver.Quit();
+            Driver.Quit();
         }
 
     }

@@ -12,7 +12,9 @@ namespace Demo.PageObject
 {
     public class LoginPage
     {
-        public static IWebElement LoginButton => Browser.Driver.FindElement(By.XPath("//*[@id='desktop - menubar - nav - element']//a[text()='Mitt konto'])]"));
+        public static IWebElement LoginButton => Browser.Driver.FindElement(By.XPath("//nav[@id='desktop-menubar-nav-element']//a[@class='myaccount-icon']"));
+
+        public static IWebElement CookiesClear => Browser.Driver.FindElement(By.Id("generalbtncookieok"));
         public static IWebElement UserNameField => Browser.Driver.FindElement(By.Id("loginInputModel_Email"));
         public static IWebElement passwordField => Browser.Driver.FindElement(By.Id("loginInputModel_Password"));
 
@@ -21,6 +23,8 @@ namespace Demo.PageObject
 
         public static void LoginWithCred()
         {
+            LoginButton.Click();
+            CookiesClear.Click();
             UserNameField.Click();
             UserNameField.SendKeys("divzy13@gmail.com");
             passwordField.Click();

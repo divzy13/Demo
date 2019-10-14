@@ -11,20 +11,21 @@ namespace Demo
     public class Browser
     {
         public static IWebDriver Driver { get; set; }
-        public string URL { get; set; }
+        public static string Address { get; set; }
 
-        public Browser()
+
+        public Browser(IWebDriver driver)
+        {
+            Driver = driver;
+        }
+
+
+        public static void Open()
         {
             Driver = new DriverFactory().Create();
-            URL = ConfigurationHelper.Get<string>("URL");
+            Address = ConfigurationHelper.Get<string>("URL");
+            Driver.Url = Address;
         }
-
-
-        public static void Open(string URL)
-        {
-            Driver.Url = URL;
-        }
-
 
 
 

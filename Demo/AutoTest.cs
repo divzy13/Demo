@@ -27,7 +27,7 @@ namespace Demo
          {
             //Driver = new driverfactory().create();
             //_url = configurationhelper.get<string>("url");
-            Browser.Open(Url);
+            Browser.Open();
         }
 
 
@@ -42,7 +42,7 @@ namespace Demo
             // chromeOptions.AddArguments("headless");
             // ChromeDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);
 
-            Driver.Navigate().GoToUrl(Url);
+           /// Driver.Navigate().GoToUrl(Url);
             LoginPage.LoginWithCred();
 
 
@@ -51,7 +51,7 @@ namespace Demo
         [TearDown]
         public void Close()
         {
-            Driver.Quit();
+            Browser.Driver.Close();
         }
 
     }

@@ -41,6 +41,7 @@ namespace Demo.SeleniumHelper
             {
                 case DriverName.Chrome:
                     var chromeOptions = new ChromeOptions();
+                    chromeOptions.AddArgument("user-data-dir=C:\\Users\\DIVYA~1.RAV\\AppData\\Local\\Temp\\scoped_dir8148_1207593418");
                     chromeOptions.AddArguments("headless");
                     driver = new ChromeDriver("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32");
                    // driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);

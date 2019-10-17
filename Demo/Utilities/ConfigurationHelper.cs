@@ -26,8 +26,8 @@ namespace Demo.Utilities
 
         public static string ConnectionStringSettings()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
-            return connectionString;
+            var convalue = ConfigurationHelper.Get<string>("myConnectionString");
+            return convalue;
         }
 
 

@@ -27,7 +27,7 @@ namespace Demo
          {
             //Driver = new driverfactory().create();
             //_url = configurationhelper.get<string>("url");
-            Browser.Open();
+           // Browser.Open();
         }
 
 

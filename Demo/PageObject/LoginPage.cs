@@ -6,12 +6,17 @@ using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Remote;
+using Demo.Utilities;
+using Demo.Test_Data;
+
 
 
 namespace Demo.PageObject
 {
     public class LoginPage
     {
+        DataBase dataBase = new DataBase();
+        
         public static IWebElement LoginButton => Browser.Driver.FindElement(By.XPath("//nav[@id='desktop-menubar-nav-element']//a[@class='myaccount-icon']"));
 
         public static IWebElement CookiesClear => Browser.Driver.FindElement(By.Id("generalbtncookieok"));
@@ -23,13 +28,14 @@ namespace Demo.PageObject
 
         public static void LoginWithCred()
         {
+            DataBase.GetInfo(10);
             LoginButton.Click();
             CookiesClear.Click();
             UserNameField.Click();
-            UserNameField.SendKeys("divzy13@gmail.com");
+            UserNameField.SendKeys();
             passwordField.Click();
             passwordField.SendKeys("divya131");
-            SubmitLogin.Click();
+            //SubmitLogin.Click();
         }
     }
 

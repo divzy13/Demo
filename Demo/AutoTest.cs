@@ -14,6 +14,7 @@ using Demo.SeleniumHelper;
 using Demo.PageObject;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Remote;
+using System.Threading;
 
 namespace Demo
 {
@@ -44,7 +45,14 @@ namespace Demo
 
             /// Driver.Navigate().GoToUrl(Url);
             LoginPage page = new LoginPage();
+            MainPage mainPage = new MainPage();
             page.LoginWithCred(10);
+            Thread.Sleep(5000);
+            mainPage.Available();
+            mainPage.HomePage();
+
+
+
 
 
         }

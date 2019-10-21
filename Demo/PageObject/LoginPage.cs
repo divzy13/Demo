@@ -8,14 +8,12 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Remote;
 using Demo.Utilities;
 using Demo.Test_Data;
-
-
+using Demo.SeleniumHelper;
 
 namespace Demo.PageObject
 {
     public class LoginPage
     {
-        DataBase dataBase = new DataBase();
         
         public static IWebElement LoginButton => Browser.Driver.FindElement(By.XPath("//nav[@id='desktop-menubar-nav-element']//a[@class='myaccount-icon']"));
 
@@ -37,6 +35,9 @@ namespace Demo.PageObject
             passwordField.Click();
             passwordField.SendKeys(value.Password);
             SubmitLogin.Click();
+            WebdriverExtension.Wait(20);
+
+
         }
     }
 

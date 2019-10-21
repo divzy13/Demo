@@ -27,12 +27,12 @@ namespace Demo
          {
             //Driver = new driverfactory().create();
             //_url = configurationhelper.get<string>("url");
-           // Browser.Open();
+            Browser.Open();
         }
 
 
         [Test]
-        public static void Openwindow()
+        public void Openwindow()
         {
             // driver = new ChromeDriver("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32");
             //  var chromeDriverService = ChromeDriverService.CreateDefaultService("C:\\Users\\divya.raveendran\\Downloads\\chromedriver_win32", "chromedriver.exe");
@@ -42,8 +42,9 @@ namespace Demo
             // chromeOptions.AddArguments("headless");
             // ChromeDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);
 
-           /// Driver.Navigate().GoToUrl(Url);
-            LoginPage.LoginWithCred();
+            /// Driver.Navigate().GoToUrl(Url);
+            LoginPage page = new LoginPage();
+            page.LoginWithCred(10);
 
 
         }

@@ -17,7 +17,7 @@ namespace Demo.Test_Data
             return connectionString = ConfigurationHelper.ConnectionStringSettings();
         }
 
-        public static UserField GetInfo(int Key)
+        public static UserField GetInfoDB(int Key)
         {
             UserField userField = new UserField();
             using (var connection = new SqlConnection(sqlConnection()))
@@ -30,8 +30,8 @@ namespace Demo.Test_Data
                 {
                     while (value.Read())
                     {
-                        UserField.Username = value["Username"].ToString();
-                        UserField.Password = value["Password"].ToString();
+                        userField.Username = value["Username"].ToString();
+                        userField.Password = value["Password"].ToString();
                     }
                 }
                 else

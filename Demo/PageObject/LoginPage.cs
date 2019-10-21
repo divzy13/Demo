@@ -26,16 +26,17 @@ namespace Demo.PageObject
         public string cmd = "select Username from dbo.UserField where coloumn= 1";
         public static IWebElement SubmitLogin => Browser.Driver.FindElement(By.XPath("//*[@id='form0']//button[@title='Logga in till ditt konto']"));
 
-        public static void LoginWithCred()
+
+        public void LoginWithCred(int key)
         {
-            DataBase.GetInfo(10);
+            var value = DataBase.GetInfoDB(key);
             LoginButton.Click();
             CookiesClear.Click();
             UserNameField.Click();
-            UserNameField.SendKeys();
+            UserNameField.SendKeys(value.Username);
             passwordField.Click();
-            passwordField.SendKeys("divya131");
-            //SubmitLogin.Click();
+            passwordField.SendKeys(value.Password);
+            SubmitLogin.Click();
         }
     }
 
